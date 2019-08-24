@@ -72,6 +72,7 @@ instead."
 
 (when (maybe-require-package 'swiper)
   (after-load 'ivy
+    (define-key ivy-mode-map (kbd "C-s") 'swiper)
     (define-key ivy-mode-map (kbd "M-s /") 'swiper-thing-at-point)))
 
 

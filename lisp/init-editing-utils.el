@@ -56,11 +56,6 @@
     (vlf file)))
 
 
-;;; A simple visible bell which works in all terminal types
-(require-package 'mode-line-bell)
-(add-hook 'after-init-hook 'mode-line-bell-mode)
-
-
 
 (when (maybe-require-package 'beacon)
   (setq-default beacon-lighter "")
@@ -332,12 +327,6 @@ With arg N, insert N newlines."
 (require-package 'highlight-escape-sequences)
 (add-hook 'after-init-hook 'hes-mode)
 
-
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence t)
-(add-hook 'after-init-hook 'guide-key-mode)
-(after-load 'guide-key
-  (diminish 'guide-key-mode))
 
 
 (defun sanityinc/disable-features-during-macro-call (orig &rest args)
