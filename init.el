@@ -52,9 +52,10 @@
 (require 'init-projectile)
 (require 'init-misc)
 (require 'init-paredit)
+(require 'flycheck)
 
 (require 'init-lisp)
-
+(require 'init-python)
 
 (when (file-exists-p custom-file)
   (load custom-file))

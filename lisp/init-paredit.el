@@ -12,7 +12,7 @@
 (add-hook 'paredit-mode-hook 'maybe-map-paredit-newline)
 
 (after-load 'paredit
-  (diminish 'paredit-mode " Par")
+  (diminish 'paredit-mode)
   ;; Suppress certain paredit keybindings to avoid clashes, including
   ;; my global binding of M-?
   (dolist (binding '("C-<left>" "C-<right>" "C-M-<left>" "C-M-<right>" "M-s" "M-?"))
@@ -47,6 +47,7 @@
 
 (require-package 'paredit-everywhere)
 (after-load 'paredit-everywhere
+  (diminish 'paredit-everywhere-mode)
   (define-key paredit-everywhere-mode-map (kbd "M-s") nil))
 (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
 

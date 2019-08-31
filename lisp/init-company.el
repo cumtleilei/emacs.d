@@ -39,7 +39,20 @@
     (add-hook 'company-completion-started-hook 'sanityinc/page-break-lines-disable)
     (add-hook 'company-after-completion-hook 'sanityinc/page-break-lines-maybe-reenable)))
 
+;; "Solve company yasnippet conflicts."
+(after-load 'company
+  (defun company-yasnippet-or-completion ()
+    (interactive)
+    (let ((yas-fallback-behavior
+           (apply 'company-complete-common nil)))
+      (yas-expand)))
 
+  (add-hook 'company-mode-hook
+            (lambda ()
+              (substitute-key-definition
+               'company-complete-common
+               'company-yasnippet-or-completion
+               company-active-map))))
 
 (provide 'init-company)
 ;;; init-company.el ends here
